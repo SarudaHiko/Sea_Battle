@@ -220,42 +220,44 @@ class Game:
         return board
 
     def greet(self):
-        print("-------------------")
-        print("  Приветсвуем вас  ")
-        print("      в игре       ")
-        print("    морской бой    ")
-        print("-------------------")
-        print(" формат ввода: x y ")
-        print(" x - номер строки  ")
-        print(" y - номер столбца ")
+        print('---------------------------')
+        print('  Добро пожаловать в игру')
+        print("       Морской Бой")
+        print('---------------------------')
+        print('Вводить нужно только цифры')
+        print('---------------------------')
+        print('     x - номер строки')
+        print('     у - номер столбца')
+        print('---------------------------')
+        print('       Запускаю игру: \n')
 
     def loop(self):
         num = 0
         while True:
-            print("-" * 20)
+            print("-" * 43)
             print("Доска пользователя:")
             print(self.us.board)
-            print("-" * 20)
+            print("-" * 43)
             print("Доска компьютера:")
             print(self.ai.board)
             if num % 2 == 0:
-                print("-" * 20)
+                print("-" * 43)
                 print("Ходит пользователь!")
                 repeat = self.us.move()
             else:
-                print("-" * 20)
+                print("-" * 43)
                 print("Ходит компьютер!")
                 repeat = self.ai.move()
             if repeat:
                 num -= 1
 
             if self.ai.board.count == 10:
-                print("-" * 20)
+                print("-" * 43)
                 print("Пользователь выиграл!")
                 break
 
             if self.us.board.count == 10:
-                print("-" * 20)
+                print("-" * 43)
                 print("Компьютер выиграл!")
                 break
             num += 1
