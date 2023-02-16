@@ -190,7 +190,7 @@ class User(Player):
 
             x, y = int(x), int(y)
 
-            return Dot(x - 1, y - 1)
+            return Dot(x, y)
 
 
 # Инициализация самой игры, запуск всех функций и методов. 
