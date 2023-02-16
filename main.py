@@ -1,8 +1,8 @@
-# Импорт модуля для ИИ. 
+# Импорт модуля для ИИ.
 from random import randint
 
 
-# Создание точки. Будет задействоваться для создания кораблей и стрельбы по полю. 
+# Создание точки. Будет задействоваться для создания кораблей и стрельбы по полю.
 class Dot:
     def __init__(self, x, y):
         self.x = x
@@ -15,7 +15,7 @@ class Dot:
         return f"({self.x}, {self.y})"
 
 
-# Блок исключений, чтобы пользователь не делал лишнего. 
+# Блок исключений, чтобы пользователь не делал лишнего.
 class BoardException(Exception):
     pass
 
@@ -34,7 +34,7 @@ class BoardWrongShipException(BoardException):
     pass
 
 
-# Создание корабля. 
+# Создание корабля.
 class Ship:
     def __init__(self, bow, l, o):
         self.bow = bow
@@ -63,7 +63,7 @@ class Ship:
         return shot in self.dots
 
 
-# Создание игрового поля. 
+# Создание игрового поля.
 class Board:
     def __init__(self, hid=False, size=10):
         self.size = size
@@ -145,7 +145,7 @@ class Board:
         self.busy = []
 
 
-# Включение игроков. 
+# Включение игроков.
 class Player:
     def __init__(self, board, enemy):
         self.board = board
@@ -164,7 +164,7 @@ class Player:
                 print(e)
 
 
-# Включение ИИ в игру. 
+# Включение ИИ в игру.
 class AI(Player):
     def ask(self):
         d = Dot(randint(0, 9), randint(0, 9))
@@ -172,7 +172,7 @@ class AI(Player):
         return d
 
 
-# Включение игрока в игру. 
+# Включение игрока в игру.
 class User(Player):
     def ask(self):
         while True:
@@ -193,7 +193,7 @@ class User(Player):
             return Dot(x, y)
 
 
-# Инициализация самой игры, запуск всех функций и методов. 
+# Инициализация самой игры, запуск всех функций и методов.
 class Game:
     def __init__(self, size=10):
         self.size = size
@@ -262,7 +262,7 @@ class Game:
 
             if self.ai.board.count == 10:
                 print("-" * 43)
-                print("Пользователь выиграл!")
+                print("Вы победили!")
                 break
 
             if self.us.board.count == 10:
@@ -276,6 +276,6 @@ class Game:
         self.loop()
 
 
-# Старт игры. 
+# Старт игры.
 g = Game()
 g.start()
